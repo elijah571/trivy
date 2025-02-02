@@ -5,7 +5,8 @@ const teacherSchema = new mongoose.Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  role: { type: String, default: 'teacher' },
-}, { timestamps: true });  
+  role: { type: String, default: 'Teacher' }, 
+  isAdmin: { type: Boolean, default: false }
+}, { timestamps: true });
 
 export const Teacher = mongoose.model('Teacher', teacherSchema);
