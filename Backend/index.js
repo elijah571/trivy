@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // CORS configuration to accept cookies
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: "http://localhost:5173/",
   credentials: true, 
 }));
 
