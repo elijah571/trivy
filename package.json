@@ -1,12 +1,12 @@
 {
   "name": "trivy",
   "version": "1.0.0",
-  "main": "./backend/index.js",  // Use './' for relative path
+  "main": "./backend/index.js",  
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
-    "dev": "ls -R && npx nodemon ./backend/index.js || node ./backend/index.js", // Add './' to make sure the path is relative
+    "dev": "ls -R && npx nodemon ./backend/index.js || node ./backend/index.js",
     "build": "echo 'No build step needed'",
     "postinstall": "chmod +x node_modules/.bin/nodemon && echo 'nodemon permissions set'"  
   },
