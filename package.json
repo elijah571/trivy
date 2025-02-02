@@ -1,12 +1,12 @@
 {
   "name": "trivy",
   "version": "1.0.0",
-  "main": "backend/index.js",  
+  "main": "./backend/index.js",  
   "type": "module",
  "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "npm run dev",
-  "dev": "npx nodemon backend/index.js || node backend/index.js", 
+  "start": "npm start",
+  "dev": "npx nodemon ./backend/index.js || node backend/index.js", 
   "build": "echo 'No build step needed'",
   "postinstall": "echo 'Skipping chmod on Windows'"
 },
