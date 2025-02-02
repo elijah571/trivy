@@ -1,13 +1,12 @@
 {
   "name": "trivy",
   "version": "1.0.0",
-  "main": "backend/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./backend/index.js",
-    "dev": "nodemon ./backend/index.js",
-    "build": "echo 'No build step needed'"
+    "start": "npm run dev",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
