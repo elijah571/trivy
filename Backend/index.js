@@ -20,7 +20,8 @@ app.use(cookieParser());
 
 // CORS configuration to accept cookies
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://trivy-six.vercel.app/", 
+  methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true, 
 }));
 
