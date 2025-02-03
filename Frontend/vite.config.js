@@ -6,8 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api':  'http://localhost:3000'
-      
+      '/api': 'https://trivy-nr2vb74sj-elijahs-projects-e0099976.vercel.app/'
     },
   },
 });
