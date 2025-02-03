@@ -20,9 +20,10 @@ app.use(cookieParser());
 
 // CORS configuration to accept cookies
 app.use(cors({
-  origin: "http://localhost:5173/",
+  origin: "http://localhost:5173", 
   credentials: true, 
 }));
+
 
 // Connect to the database
 connectDb();

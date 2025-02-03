@@ -1,49 +1,131 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    background-color: #f39c12;
-    color: white;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-buttons {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .login-btn,
-  .signup-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .login-btn {
-    background-color: #2ecc71;
-    color: white;
-  }
-  
-  .login-btn:hover {
-    background-color: #1e7e34;
-  }
-  
-  .signup-btn {
-    background-color: #2ecc71;;
-    color: white;
-  }
-  
-  .signup-btn:hover {
-    background-color: #1e7e34;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  position: relative;
+  cursor: pointer;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+.auth-buttons {
+  display: flex;
+}
+
+.signup-btn,
+.login-btn {
+  margin-left: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-btn:hover,
+.login-btn:hover {
+  background-color: #2980b9;
+}
+.username {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.username svg {
+  margin-left: 5px; /* Add space between the username and the dropdown icon */
+}
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  right: 0;
+  top: 50px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+.username svg {
+  margin-left: 5px; /* Add space between the username and the dropdown icon */
+}
+.link{
+  text-decoration: none;
+  text-transform: none;
+  color: #ffff;
+}

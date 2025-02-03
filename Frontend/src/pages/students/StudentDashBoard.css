@@ -1,0 +1,119 @@
+/* Container for the whole dashboard */
+.student-dashboard-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: fixed; /* Ensure equal width for columns */
+}
+
+/* Table Header and Cells */
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Wrap text if it's too long */
+    white-space: normal;  /* Allow wrapping of long text */
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Delete button styles */
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .student-dashboard-container {
+        padding: 15px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .student-dashboard-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .delete-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .student-dashboard-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 8px;
+    }
+
+    th, td {
+        padding: 6px;
+        text-align: center;
+    }
+
+    .delete-btn {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+}

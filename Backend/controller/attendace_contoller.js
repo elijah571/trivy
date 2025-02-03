@@ -1,35 +1,34 @@
 import { Attendance } from '../model/attendace.js';
 import { Teacher } from '../model/teacher.js';
-import { Student } from '../model/student.js';  // Make sure to import the Student model
+import { Student } from '../model/student.js';
 
-
-// Updated to use the logged-in teacher's ID
+// ✅ Mark Attendance for Students
 export const markAttendance = async (req, res) => {
   try {
-    const teacherId = req.user.id;  // Get teacher ID from the token (authenticated user)
+    const teacherId = req.user.id; // Get teacher ID from authenticated user
 
-    // Proceed to check if teacher exists
+    // Ensure teacher exists
     const teacher = await Teacher.findById(teacherId);
     if (!teacher) {
       return res.status(404).json({ message: 'Teacher not found' });
     }
 
-    // Check if all students exist
+    // Validate students
     const studentIds = req.body.studentStatuses.map(status => status.studentId);
     const students = await Student.find({ '_id': { $in: studentIds } });
 
-    if (students.length !== req.body.studentStatuses.length) {
+    if (students.length !== studentIds.length) {
       return res.status(404).json({ message: 'Some students not found' });
     }
 
-    // Create attendance records for each student
+    // Prepare attendance records
     const studentsAttendance = req.body.studentStatuses.map(status => ({
       student: status.studentId,
       status: status.status,
-      remarks: status.remarks || '',
+      remarks: status.remarks || 'No remarks', // Default remark if empty
     }));
 
-    // Create a new attendance record
+    // Save attendance
     const attendance = new Attendance({
       teacher: teacherId,
       students: studentsAttendance,
@@ -40,26 +39,74 @@ export const markAttendance = async (req, res) => {
     res.status(201).json({ message: 'Attendance marked successfully', attendance });
 
   } catch (err) {
+    console.error('Error marking attendance:', err);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
 
-// Get attendance records for a specific teacher
 export const getTeacherAttendance = async (req, res) => {
   try {
     const teacherId = req.params.teacherId;
 
-    // Fetch attendance records for the teacher, populate both teacher and students
-    const attendanceRecords = await Attendance.find({ teacher: teacherId })
-      .populate('teacher')
-      .populate('students.student');  // Populate student info
+    let attendanceRecords;
+    if (teacherId === "all") {
+      // Fetch all attendance records
+      attendanceRecords = await Attendance.find()
+        .populate("teacher")
+        .populate("students.student");
+    } else {
+      // Fetch attendance records for a specific teacher
+      attendanceRecords = await Attendance.find({ teacher: teacherId })
+        .populate("teacher")
+        .populate("students.student");
+    }
 
     if (!attendanceRecords.length) {
-      return res.status(404).json({ message: 'No attendance records found for this teacher' });
+      return res.status(404).json({ message: "No attendance records found" });
     }
 
     res.status(200).json(attendanceRecords);
   } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+};
+
+
+export const getAllAttendance = async (req, res) => {
+  try {
+    // Fetch all attendance, sorted by date (latest first)
+    const attendanceRecords = await Attendance.find()
+      .populate('teacher', 'name email')
+      .populate('students.student', 'name')
+      .sort({ date: -1 });
+
+    if (!attendanceRecords.length) {
+      return res.status(404).json({ message: 'No attendance records found' });
+    }
+
+    res.status(200).json(attendanceRecords);
+  } catch (err) {
+    console.error('Error fetching all attendance:', err);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
+
+// ✅ Delete Attendance
+export const deleteAttendance = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find and delete the attendance record by ID
+    const attendance = await Attendance.findByIdAndDelete(id);
+
+    if (!attendance) {
+      return res.status(404).json({ message: 'Attendance record not found' });
+    }
+
+    res.status(200).json({ message: 'Attendance record deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting attendance:', err);
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+

@@ -48,9 +48,18 @@ export const loginTeacher = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-   
-    await generateToken(res, teacher._id); 
-    return res.status(200).json({ message: 'Login successful' });
+    // Generate token
+    const token = generateToken(res, teacher._id);
+
+    // Send back user details (including username)
+    return res.status(200).json({
+      id: teacher._id,
+      username: teacher.username,
+      email: teacher.email,
+      role: teacher.role,
+      token,
+      message: 'Login successful',
+    });
 
   } catch (err) {
     return res.status(500).json({ message: 'Server error', error: err.message });

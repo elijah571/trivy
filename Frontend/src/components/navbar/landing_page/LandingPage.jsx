@@ -28,15 +28,15 @@ export const LandingPage = () => {
         <h2>Key Features for Teachers</h2>
         <div className="course-list">
           <div className="course">
-            <Link to={"/login"}>Quick and Secure Login</Link>
+            
             <p>Log in to your account in seconds and start managing your attendance without delays.</p>
           </div>
           <div className="course">
-            <Link to={'/mark-attendance'}>Efficient Attendance Marking</Link>
+          
             <p>Mark attendance with just a few clicks, saving you valuable time during your classes.</p>
           </div>
           <div className="course">
-            <Link to={'/dashboard'}>Comprehensive Attendance Reports</Link>
+           
             <p>Get insights on student attendance trends to better understand and support your students' learning habits.</p>
           </div>
         </div>

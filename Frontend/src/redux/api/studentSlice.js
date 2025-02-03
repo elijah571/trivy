@@ -25,15 +25,15 @@ export const studentApiSlice = apiSlice.injectEndpoints({
     }),
     updateStudent: builder.mutation({
       query: (data) => ({
-        url: `${STUDENTS_URL}/${data.studentId}`, // Update student information
+        url: `${STUDENTS_URL}/${data._id}`, // Use _id for update
         method: "PUT",
         body: data,
       }),
       invalidatesTags: ["Student"],
     }),
     deleteStudent: builder.mutation({
-      query: (studentId) => ({
-        url: `${STUDENTS_URL}/${studentId}`, // Delete student route
+      query: (_id) => ({
+        url: `${STUDENTS_URL}/${_id}`, // Use _id for delete
         method: "DELETE",
       }),
     }),
