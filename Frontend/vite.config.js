@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://trivy-nr2vb74sj-elijahs-projects-e0099976.vercel.app/'
+      '/api': 'https://trivy-backend.onrender.com'
     },
   },
 });
