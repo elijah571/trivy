@@ -48,9 +48,7 @@ export const Navbar = () => {
                 {/* Conditionally render admin-specific options */}
                 {userInfo.role === "admin" && (
                   <>
-                      <Link to="/dashboard" className="dropdown-item">
-                        Dashboard
-                      </Link>
+                     
                     <Link to="/create-student" className="dropdown-item">
                       Enroll Students
                     </Link>
