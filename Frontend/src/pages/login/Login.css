@@ -1,0 +1,89 @@
+/* Login.css */
+
+/* Full-screen container with a subtle gradient background */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e7dff, #4a6df5);
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Form styling with modern effects */
+  form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for input fields */
+  input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #4a6df5;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  /* Button styling with hover effect */
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #4a6df5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #3a5bb5;
+  }
+  
+  /* Disabled button styling */
+  button:disabled {
+    background-color: #b1c9f9;
+    cursor: not-allowed;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Loading text styling */
+  .loading-text {
+    color: #4a6df5;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
